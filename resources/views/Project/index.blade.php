@@ -60,7 +60,7 @@
                                         <p class="text-gray-600 text-xs pb-2">
                                             Status: <span class="uppercase">{{$project->status}}</span> 
                                         </p>
-                                        <p class="text-gray-700 text-md">
+                                        <p class="text-gray-700 text-md" maxlength="20">
                                             {{$project->description}}
                                         </p>
                                     </div>

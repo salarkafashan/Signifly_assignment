@@ -17,4 +17,7 @@ class Project extends Model
         'users_id',
         'dead_line',
     ];
+    public function Users(){
+        return $this->hasMany(User::class);
+    }
 }

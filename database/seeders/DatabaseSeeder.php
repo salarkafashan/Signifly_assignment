@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(RoleSeeder::class);
+        $this->call(ProjectSeeder::class);
         $this->call(ProjectManagerSeeder::class);
 
         // create 30 fake user
