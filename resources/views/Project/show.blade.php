@@ -11,12 +11,18 @@
                     </div>
                     <div>
                         <div class="text-right p-12">
-                            <a href="{{ route('projects.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
+                            <a href="{{ route('projects.edit',$project->id) }}" class="inline-flex items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
                                 edit
                             </a>
-                            <a href="{{ route('projects.create') }}" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
-                                Delete
-                            </a>
+                            <form class="inline-flex" method="POST" action="{{ route('projects.destroy',$project->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" onclick="return confirm('are you sure?')" class="px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
+                                    Delete
+                                </button>
+
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -82,4 +88,5 @@
             </div>
         </div>
     </div>
+
 </x-app-layout>

@@ -23,6 +23,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('projects', ProjectController::class);
 
-Route::get('users/{user}', [UserController::class, 'show']);
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    
+    Route::resource('projects', ProjectController::class);
+    Route::get('users/{user}', [UserController::class, 'show']);
+    
+});
