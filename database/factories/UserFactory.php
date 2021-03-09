@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'education' => $this->faker->randomElement(['Bachelor of Software Engineering', 'Bachelor of Art', 'Master of Science', 'Master of Graphic']),
-            'skills' => $this->faker->randomElement([["Laravel","mysql","Api"], ["Vue.js","react.js","Html5"], ["Html5","css3","vector design","photoshop"] ,["Photograph","photoshop","video editing"]]),
+            'skills' => $this->faker->randomElement([["Laravel","mysql","Api"], ["Vue.js","react.js","Html5"], ["css3","vector design","photoshop"] ,["Photograph","video editing"]]),
             'description' =>$this->faker->realText(100),
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,

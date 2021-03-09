@@ -14,6 +14,7 @@ class Project extends Model
         'skills',
         'description',
         'specific_technologies',
+        'staff',
         'users_id',
         'dead_line',
     ];
@@ -22,6 +23,8 @@ class Project extends Model
     }
 
     protected $casts = [
-        'specific_technologies' => 'array'
+        'specific_technologies' => 'array',
+        'staff' => 'array',
+
     ];
 }

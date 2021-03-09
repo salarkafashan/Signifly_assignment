@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->string('specific_technologies')->nullable();
+            $table->string('staff')->nullable();
             $table->string('status')->default('Pendding');
             $table->string('dead_line')->nullable();
             $table->timestamps();

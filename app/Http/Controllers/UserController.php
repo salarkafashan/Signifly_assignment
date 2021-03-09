@@ -26,4 +26,12 @@ class UserController extends Controller
         exit;
     }
 
+    public function add_project_to_user(Request $request)
+    {
+        $project_id = $request['project_id'];
+        $user_id = $request['user_id'];
+        $user = User::where('id', $user_id)->update(['status' => 'in Progress'],['project_id' => $project_id]);
+        return 'Success';
+    }
+
 }

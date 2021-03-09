@@ -34,7 +34,7 @@
                                 </label>
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    name="name" type="text" placeholder="please enter a name" >
+                                    name="name" type="text" placeholder="please enter a name"  value={{old('name')}}>
                                     @error('name')
                                         <span class="text-red-600 text-sm font-semibold">{{ $message }}</span>
                                     @enderror
@@ -44,9 +44,8 @@
                                     Technologies you need :
                                 </label>
                                 <input type="checkbox" name="specific_technologies[]" value="Laravel"> Laravel <br>
-                                <input type="checkbox" name="specific_technologies[]" value="mysql"> mysql<br>
+                                <input type="checkbox" name="specific_technologies[]" value="java"> Java<br>
                                 <input type="checkbox" name="specific_technologies[]" value="Vue.js"> Vue.js<br>
-                                <input type="checkbox" name="specific_technologies[]" value="react.js"> react.js<br>
                                 <input type="checkbox" name="specific_technologies[]" value="Html5"> Html5<br>
                                 <input type="checkbox" name="specific_technologies[]" value="photoshop"> photoshop<br>
 
@@ -70,7 +69,7 @@
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                                     Description :
                                 </label>
-                                <textarea rows="10" name="description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" type="text" placeholder="write project description"></textarea>
+                                <textarea rows="10" name="description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" type="text" placeholder="write project description">{{old('description')}}</textarea>
                                 @error('description')
                                     <span class="text-red-600 text-sm font-semibold">{{ $message }}</span>
                                 @enderror

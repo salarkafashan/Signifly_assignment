@@ -26,12 +26,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('Project/create_first_step');
-        // $users = User::where('project_id', null)
-        // ->where('id', '!=', 1)
-        // ->get();
-        // $project = Project::find(3);
-        // return view('Project/create_secound_step', compact('users','project'));
+        // return view('Project/create_first_step');
+        $users = User::where('project_id', null)
+        ->where('id', '!=', 1)
+        ->get();
+        $project = Project::find(3);
+        return view('Project/create_secound_step', compact('users','project'));
     }
 
     /**
