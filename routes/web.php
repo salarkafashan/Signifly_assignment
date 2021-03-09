@@ -27,9 +27,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     
     Route::resource('projects', ProjectController::class);
+    
     Route::get('users/{user}', [UserController::class, 'show']);
     Route::get('users', [UserController::class, 'index']);
-    Route::get('Ajax/Projects/{work_experience}', [UserController::class, 'filter_user_by_experience']);
+
+    Route::post('Ajax/Projects', [UserController::class, 'filter_user_by_experience']);
     Route::post('/Ajax/user/add_project', [UserController::class, 'add_project_to_user']);
     
 });

@@ -26,12 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        // return view('Project/create_first_step');
-        $users = User::where('project_id', null)
-        ->where('id', '!=', 1)
-        ->get();
-        $project = Project::find(3);
-        return view('Project/create_secound_step', compact('users','project'));
+        return view('Project/create_first_step');
     }
 
     /**
@@ -45,11 +40,10 @@ class ProjectController extends Controller
         // Store data in database
         $data = $this->validateRequest();
         $project = Project::create($data);
-  
+
+        
         // select available users
-        $users = User::where('project_id', null)
-        ->where('id', '!=', 1)
-        ->get();
+        $users = User::all();
         return view('Project/create_secound_step', compact('users','project'));
     }
 
@@ -65,29 +59,7 @@ class ProjectController extends Controller
         return view('Project/show', compact('project','users'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -100,7 +72,7 @@ class ProjectController extends Controller
         return redirect()->route('projects.index');
     }
 
-
+    // return data after validation
     private function validateRequest(){
         return request()->validate([
 

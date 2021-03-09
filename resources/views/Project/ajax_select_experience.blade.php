@@ -32,16 +32,23 @@
         function fetchRecord(id)
         {
             $.ajax({
-            type: 'get',
-            url: '/Ajax/Projects/'+id,
+            type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                project_id: {{$project->id}},
+                experience : id
+            },
+            url: '/Ajax/Projects',
             dataType: 'json', 
             success: function(responce){
-                console.log(responce);
                     var len = 0;
                     $('#display_users').empty();
                     if(responce['data'] != null){
                         len = responce['data'].length;
                     }
+                    
                     if(len > 0)
                     {
                         for(var i=0; i<len; i++){

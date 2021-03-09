@@ -45,8 +45,10 @@
                                 </label>
                                 <input type="checkbox" name="specific_technologies[]" value="Laravel"> Laravel <br>
                                 <input type="checkbox" name="specific_technologies[]" value="java"> Java<br>
-                                <input type="checkbox" name="specific_technologies[]" value="Vue.js"> Vue.js<br>
-                                <input type="checkbox" name="specific_technologies[]" value="Html5"> Html5<br>
+                                <input type="checkbox" name="specific_technologies[]" value="vue.js"> Vue.js<br>
+                                <input type="checkbox" name="specific_technologies[]" value="html5"> Html5<br>
+                                <input type="checkbox" name="specific_technologies[]" value="css3"> css3<br>
+                                <input type="checkbox" name="specific_technologies[]" value="react.js"> react.js<br>
                                 <input type="checkbox" name="specific_technologies[]" value="photoshop"> photoshop<br>
 
                                     @error('tspecific_technologies[]')
