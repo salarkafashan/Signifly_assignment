@@ -26,7 +26,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return('test');   
+        return view('Project/create_first_step');
+        // $users = User::where('project_id', null)
+        // ->where('id', '!=', 1)
+        // ->get();
+        // $project = Project::find(3);
+        // return view('Project/create_secound_step', compact('users','project'));
     }
 
     /**
@@ -36,8 +41,16 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {          
+        // Store data in database
+        $data = $this->validateRequest();
+        $project = Project::create($data);
+  
+        // select available users
+        $users = User::where('project_id', null)
+        ->where('id', '!=', 1)
+        ->get();
+        return view('Project/create_secound_step', compact('users','project'));
     }
 
     /**
@@ -85,5 +98,16 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route('projects.index');
+    }
+
+
+    private function validateRequest(){
+        return request()->validate([
+
+            'name' => ['required','string', 'min:4', 'unique:projects'],
+            'description'=> ['sometimes', 'string'],
+            'dead_line'=> ['required'],
+            'specific_technologies'=> ['required'],
+        ]);
     }
 }

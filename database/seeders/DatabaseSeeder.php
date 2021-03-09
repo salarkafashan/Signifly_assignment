@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectManagerSeeder::class);
 
         // create 30 fake user
-        \App\Models\User::factory(30)->create();
+        \App\Models\User::factory(8)->create();
     }
 }

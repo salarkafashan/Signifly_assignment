@@ -20,4 +20,8 @@ class Project extends Model
     public function Users(){
         return $this->hasMany(User::class);
     }
+
+    protected $casts = [
+        'specific_technologies' => 'array'
+    ];
 }

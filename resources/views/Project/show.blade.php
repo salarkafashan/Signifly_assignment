@@ -11,9 +11,6 @@
                     </div>
                     <div>
                         <div class="text-right p-12">
-                            <a href="{{ route('projects.edit',$project->id) }}" class="inline-flex items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
-                                edit
-                            </a>
                             <form class="inline-flex" method="POST" action="{{ route('projects.destroy',$project->id) }}">
                                 @csrf
                                 @method('delete')
@@ -41,9 +38,9 @@
                             </p>
                             <div class="mb-5">
                                 <p class="text-gray-600 text-sm">Technologies:</p>
-                                @if(json_decode($project->specific_technologies))
-                                    @foreach (json_decode($project->specific_technologies) as $technologie)
-                                        <span class="text-gray-600 text-sm">{{$technologie}},</span>
+                                @if($project->specific_technologies)
+                                    @foreach ($project->specific_technologies as $technologie)
+                                        <span class="text-gray-600 text-sm">{{$technologie}}</span>
                                     @endforeach
                                 @else
                                 <p class="text-gray-700 text-sm">No technologies added</p>
@@ -64,7 +61,7 @@
                                     <a href="{{ url('users', $user->id)}}">
                                         <div class="items-center mt-8">
                                             @if ($user->profile_photo_path)
-                                                <img class="w-10 h-10 ml-3 rounded-full" alt="{{$user->name}}" src="{{asset('storage/'.$user->profile_photo_path)}}">
+                                                <img class="w-10 h-10 ml-3 rounded-full" alt="{{$user->name}}" src="{{$user->profile_photo_path}}">
                                             @else
                                                 <svg class="w-10 h-10 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="-42 0 512 512.001">
                                                     <path d="m210.351562 246.632812c33.882813 0 63.21875-12.152343 87.195313-36.128906 23.96875-23.972656 36.125-53.304687 36.125-87.191406 0-33.875-12.152344-63.210938-36.128906-87.191406-23.976563-23.96875-53.3125-36.121094-87.191407-36.121094-33.886718 0-63.21875 12.152344-87.191406 36.125s-36.128906 53.308594-36.128906 87.1875c0 33.886719 12.15625 63.222656 36.128906 87.195312 23.980469 23.96875 53.316406 36.125 87.191406 36.125zm-65.972656-189.292968c18.394532-18.394532 39.972656-27.335938 65.972656-27.335938 25.996094 0 47.578126 8.941406 65.976563 27.335938 18.394531 18.398437 27.339844 39.980468 27.339844 65.972656 0 26-8.945313 47.578125-27.339844 65.976562-18.398437 18.398438-39.980469 27.339844-65.976563 27.339844-25.992187 0-47.570312-8.945312-65.972656-27.339844-18.398437-18.394531-27.34375-39.976562-27.34375-65.976562 0-25.992188 8.945313-47.574219 27.34375-65.972656zm0 0"/>

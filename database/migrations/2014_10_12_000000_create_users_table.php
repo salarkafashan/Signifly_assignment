@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('education')->nullable();
-            $table->string('skills')->nullable();
+            $table->json('skills')->nullable();
             $table->string('description')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();

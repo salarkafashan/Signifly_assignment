@@ -29,11 +29,12 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'education' => $this->faker->randomElement(['Bachelor of Software Engineering', 'Bachelor of Art', 'Master of Science', 'Master of Graphic']),
-            'skills' => $this->faker->randomElement(['["Laravel","mysql","Api"]', '["Vue.js","react.js","Html5"]', '["Html5","css3","vector design","photoshop"]' ,'["Photograph","photoshop","video editing"]']),
+            'skills' => $this->faker->randomElement([["Laravel","mysql","Api"], ["Vue.js","react.js","Html5"], ["Html5","css3","vector design","photoshop"] ,["Photograph","photoshop","video editing"]]),
             'description' =>$this->faker->realText(100),
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,
             'work_experience' => $this->faker->numberBetween(1, 10),
+            'profile_photo_path' => $this->faker->randomElement(['/User_image/1.jpg','/User_image/2.jpg','/User_image/3.jpg','/User_image/4.jpg','/User_image/5.jpg','/User_image/6.jpg']),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
