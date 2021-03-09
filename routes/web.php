@@ -24,10 +24,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'CheckManager'])->group(function () {
     
     Route::resource('projects', ProjectController::class);
-    
+
     Route::get('users/{user}', [UserController::class, 'show']);
     Route::get('users', [UserController::class, 'index']);
 
